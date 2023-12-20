@@ -111,7 +111,7 @@ Create a `.wslconfig` file on `/mnt/c/Users/<user>/` and add a reference to the 
 
 ```ini
 [wsl2]
-kernel=c:\\users\\<user>\\usbip-bzImage
+kernel=c:/users/<user>/usbip-bzImage
 ```
 
 Your WSL distro is now ready to use!
