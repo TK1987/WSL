@@ -1,0 +1,26 @@
+#!/bin/bash
+
+KERNEL_PATH="/media/s/WSL"
+URL="https://api.github.com/repos/tk1987/WSL/releases/latest"
+
+set -e
+CURRENT=$(uname -r |cut -f1 -d-)
+
+CONFIG_PATH="$(echo $PATH|tr ':' '\n'|grep -ioP "^.*c/Users/[^/]+"|head -n1)/.wslconfig"
+SOURCE=$(wget -qcO- $URL)
+LATEST=$(grep -ioP '(?<="tag_name": ")[^"]+' <<< $SOURCE)
+
+if [ "$CURRENT" != "$LATEST" ];then
+  echo "Neuer Kernel \"$LATEST\" gefunden, starte Download... "
+  DL=$(grep -ioP '(?<="browser_download_url": ")[^"]+' <<< $SOURCE)
+  wget --show-progress -qcP $KERNEL_PATH $DL
+  KP=$(wslpath -m "$KERNEL_PATH/$LATEST")
+  echo -n "Schreibe neue Kernelversion in \"$CONFIG_PATH\"... "
+  cat << -- > $CONFIG_PATH
+[wsl2]
+kernel=$KP
+--
+echo -e "\e[92mok.\e[0m"
+else
+  echo "Kernelversion ist aktuell. "
+fi
