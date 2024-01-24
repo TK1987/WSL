@@ -70,21 +70,7 @@ Clone the kernel repo, then checkout the branch/tag that matches your kernel ver
 git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
 git checkout linux-msft-wsl-5.10.43.3
-```
-
-Copy current configuration file.
-
-```bash
-cp /proc/config.gz config.gz
-gunzip config.gz
-mv config .config
-```
-
-You may need to set CONFIG_USB=y in .config prior to running menuconfig to get all options enabled for selection.
-
-Run menuconfig to select kernel features to add.
-
-```bash
+gunzip -kc /proc/config.gz |>/dev/null sudo tee .config
 sudo make menuconfig
 ```
 
