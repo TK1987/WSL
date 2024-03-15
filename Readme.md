@@ -86,14 +86,14 @@ sudo make -j $CORE && sudo make modules_install -j $CORE && sudo make install -j
 From the root of the repo, copy the image.
 
 ```bash
-cp arch/x86/boot/bzImage /mnt/c/Users/<user>/usbip-bzImage
+cp arch/x86/boot/bzImage /mnt/c/Users/<user>/
 ```
 
 Create a `.wslconfig` file on `/mnt/c/Users/<user>/` and add a reference to the created image with the following.
 
 ```ini
 [wsl2]
-kernel=c:/users/<user>/usbip-bzImage
+kernel=c:/users/<user>/bzImage
 ```
 
 Your WSL distro is now ready to use!
