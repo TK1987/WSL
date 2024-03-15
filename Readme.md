@@ -2,10 +2,6 @@
 
 ## Building your own WSL 2 kernel with additional drivers
 
-> [!NOTE]
-> Recent versions of Windows running WSL kernel 5.10.60.1 or later already include support for common scenarios like USB-to-serial adapters and flashing embedded development boards.
-> Only if you require special drivers will you need to build your own kernel for WSL 2.
-
 Update WSL:
 
 ```pwsh
