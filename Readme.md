@@ -46,7 +46,7 @@ sudo apt upgrade
 Install prerequisites.
 
 ```bash
-sudo apt install build-essential flex bison libssl-dev libelf-dev libncurses-dev autoconf libudev-dev libtool bc pahole dwarves
+sudo apt install -y git build-essential flex bison libssl-dev libelf-dev libncurses-dev autoconf libudev-dev libtool bc pahole dwarves
 ```
 
 > [!NOTE]
