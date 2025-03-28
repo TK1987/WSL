@@ -70,12 +70,7 @@ gunzip -kc /proc/config.gz |>/dev/null sudo tee .config
 make menuconfig
 ```
 
-These are the necessary additional features in menuconfig.\
-Device Drivers -> USB Support\
-Device Drivers -> USB Support -> USB announce new devices\
-Device Drivers -> USB Support -> USB Modem (CDC ACM) support\
-Device Drivers -> USB Support -> USB/IP\
-Device Drivers -> USB Support -> USB/IP -> VHCI HCD\
+Add additional features, e.g.\
 Device Drivers -> USB Support -> USB Mass Storage support
 
 ```bash
