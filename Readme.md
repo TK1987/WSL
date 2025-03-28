@@ -67,7 +67,7 @@ git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 cd WSL2-Linux-Kernel
 git checkout linux-msft-wsl-5.10.43.3
 gunzip -kc /proc/config.gz |>/dev/null sudo tee .config
-sudo make menuconfig
+make menuconfig
 ```
 
 These are the necessary additional features in menuconfig.\
@@ -80,7 +80,7 @@ Device Drivers -> USB Support -> USB Mass Storage support
 
 ```bash
 CORE=$(getconf _NPROCESSORS_ONLN)
-sudo make -j $CORE && sudo make modules_install -j $CORE && sudo make install -j $CORE
+make -j $CORE && sudo make modules_install -j $CORE && sudo make install -j $CORE
 ```
 
 From the root of the repo, copy the image.
